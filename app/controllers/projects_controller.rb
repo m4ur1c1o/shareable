@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :update, :show]
+  before_action :set_project, only: [:edit, :update, :show, :destroy]
 
   def index
     @projects = Project.all
@@ -35,6 +35,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: 'Project was removed.' }
+    end
   end
 
   private
