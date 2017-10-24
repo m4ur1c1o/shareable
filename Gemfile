@@ -16,6 +16,10 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.1'
+  gem 'factory_girl_rails', '~> 4.9'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :development do
