@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :update, :show, :destroy]
+  before_action :set_project, only: [:edit, :update, :show, :destroy, :toggle_status]
 
   def index
     @projects = Project.all
@@ -42,6 +42,16 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was removed.' }
     end
+  end
+
+  def toggle_status
+    if @project.pending?
+      @project.approved!
+    elsif @project.approved?
+      @project.pending!
+    end
+
+    redirect_to projects_url, notice: 'Project status has been updated.'
   end
 
   private
