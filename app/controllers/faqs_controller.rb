@@ -1,6 +1,6 @@
 class FaqsController < ApplicationController
-  before_action :set_project, only: [:new, :create, :edit, :update]
-  before_action :set_faq, only: [:edit, :update]
+  before_action :set_project, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_faq, only: [:edit, :update, :destroy]
 
   def new
     @faq = Faq.new
@@ -11,7 +11,7 @@ class FaqsController < ApplicationController
 
     respond_to do |format|
       if @faq.save
-        format.html { redirect_to project_show_path(@project), notice: 'Your faq was created.' }
+        format.html { redirect_to project_show_path(@project), notice: 'Your FAQ was created.' }
       else
         format.html { render :new }
       end
@@ -24,10 +24,18 @@ class FaqsController < ApplicationController
   def update
     respond_to do |format|
       if @faq.update(faq_params)
-        format.html { redirect_to project_show_path(@project), notice: 'The FAQ was successfully updated.' }
+        format.html { redirect_to project_show_path(@project), notice: 'FAQ was successfully updated.' }
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+    @faq.destroy
+
+    respond_to do |format|
+      format.html { redirect_to project_show_path(@project), notice: 'FAQ was removed.' }
     end
   end
 

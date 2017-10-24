@@ -16,4 +16,5 @@
   <h5><%= faq.question %></h5>
   <p><%= faq.answer %></p>
   <p><%= link_to 'Edit', edit_project_faq_path(@project, faq) %></p>
+  <p><%= link_to 'Delete', project_faq_path(@project, faq), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <% end %>
