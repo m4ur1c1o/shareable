@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:edit, :update]
+  before_action :set_project, only: [:edit, :update, :show]
 
   def index
     @projects = Project.all
@@ -32,6 +32,9 @@ class ProjectsController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+
+  def show
   end
 
   private
