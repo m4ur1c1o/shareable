@@ -11,3 +11,11 @@ puts '1 User created'
 end
 
 puts '9 Projects created'
+
+5.times do |faq|
+  Faq.create!(question: '¿Lorem ipsum dolor sit amet?',
+              answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+              project_id: Project.last.id)
+end
+
+puts '5 FAQs created'
