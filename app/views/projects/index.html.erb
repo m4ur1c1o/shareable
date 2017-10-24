@@ -1,0 +1,7 @@
+<h1>Projects</h1>
+
+<% @projects.each do |project| %>
+  <h3><%= project.title %></h3>
+  <h4><%= project.short_description %></h4>
+  <%= image_tag project.image unless project.image.nil? %>
+<% end %>
