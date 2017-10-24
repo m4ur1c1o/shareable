@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
 
-  enum role: { company: 0, admin: 1}
+  enum role: { company: 0, admin: 1 }
 end

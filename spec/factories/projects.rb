@@ -4,7 +4,7 @@ FactoryGirl.define do
     short_description "MyText"
     description "MyText"
     image "MyString"
-    status 1
-    user nil
+    status 0
+    user
   end
 end
