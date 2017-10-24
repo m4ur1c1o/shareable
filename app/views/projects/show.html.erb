@@ -12,7 +12,8 @@
 
 <%= link_to 'Add faq', new_project_faq_path(@project) %>
 
-<% @project.faqs.each do |project| %>
-  <h5><%= project.question %></h5>
-  <p><%= project.answer %></p>
+<% @project.faqs.each do |faq| %>
+  <h5><%= faq.question %></h5>
+  <p><%= faq.answer %></p>
+  <p><%= link_to 'Edit', edit_project_faq_path(@project, faq) %></p>
 <% end %>
