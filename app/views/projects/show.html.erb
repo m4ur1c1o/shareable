@@ -5,3 +5,14 @@
 <em><%= @project.short_description %></em>
 
 <p><%= @project.description %></p>
+
+<hr>
+
+<h3>Project FAQ's</h3>
+
+<%= link_to 'Add faq', new_project_faq_path(@project) %>
+
+<% @project.faqs.each do |project| %>
+  <h5><%= project.question %></h5>
+  <p><%= project.answer %></p>
+<% end %>
