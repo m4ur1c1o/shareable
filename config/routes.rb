@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :faqs
   resources :projects, except: [:show] do
     member do
       get 'toggle_status'
