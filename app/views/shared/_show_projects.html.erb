@@ -7,7 +7,7 @@
           <h3><%= link_to project.title, project_show_path(project) %></h3>
           <p><%= project.short_description %></p>
         </div>
-        <%= link_to project.status, toggle_status_project_path(project) %>
+        <%= status_label project.status %>
         <%= link_to 'Edit', edit_project_path(project) %>
         <%= link_to 'Delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?'} %>
       </div>
