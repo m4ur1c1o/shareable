@@ -20,3 +20,6 @@
 
 # Ignore uploads for carrierwave
 public/uploads
+
+# Dotenv files
+/.env
