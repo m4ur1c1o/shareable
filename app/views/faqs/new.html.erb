@@ -1,17 +1,17 @@
-<h1>Create a new Faq</h1>
+<h1>Create a new FAQ</h1>
 
 <%= form_for([@project, @faq]) do |f| %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :question %>
-    <%= f.text_field :question %>
+    <%= f.text_field :question, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :answer %>
-    <%= f.text_field :answer %>
+    <%= f.text_area :answer, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit 'Create FAQ', class: 'btn btn-primary' %>
   </div>
 <% end %>
