@@ -40,3 +40,4 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'mini_magick', '~> 4.8'
 gem "fog-aws"
 gem 'dotenv-rails' , :groups => [:development, :test]
+gem 'gritter', '~> 1.2'

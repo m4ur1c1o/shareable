@@ -11,9 +11,6 @@
   <body>
     <%= render 'shared/nav' %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -21,5 +18,7 @@
         </div>
       </div>
     </div>
+
+    <%= js add_gritter(flash[:notice], title: "Shareable App Notification", sticky: false) %>
   </body>
 </html>

@@ -1,6 +1,12 @@
 <h1>Create a new Project</h1>
 
 <%= form_for @project do |f| %>
+  <% if @project.errors.any? %>
+    <% @project.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Shareable App Notification", sticky: false) %>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>

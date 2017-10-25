@@ -1,6 +1,12 @@
 <h1>Create a new FAQ</h1>
 
 <%= form_for([@project, @faq]) do |f| %>
+  <% if @faq.errors.any? %>
+    <% @faq.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: "Shareable App Notification", sticky: false) %>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :question %>
     <%= f.text_field :question, class: 'form-control' %>
