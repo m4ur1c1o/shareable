@@ -8,6 +8,8 @@ class Project < ApplicationRecord
 
   after_initialize :set_defaults
 
+  mount_uploader :image, ImageUploader
+
   private
 
     def set_defaults

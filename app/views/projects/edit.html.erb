@@ -1,22 +1,27 @@
 <h1>Edit this Project</h1>
 
 <%= form_for @project do |f| %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :short_description %>
-    <%= f.text_field :short_description %>
+    <%= f.text_field :short_description, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Edit Project', class: 'btn btn-primary' %>
   </div>
 <% end %>
