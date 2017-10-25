@@ -8,8 +8,10 @@
           <p><%= project.short_description %></p>
         </div>
         <%= status_label project.status %>
-        <%= link_to 'Edit', edit_project_path(project) %>
-        <%= link_to 'Delete project', project_path(project), method: :delete, data: { confirm: 'Are you sure?'} %>
+        <div class="pull-right">
+          <%= link_to '', edit_project_path(project), class: 'glyphicon glyphicon-pencil' %>
+          <%= link_to '', project_path(project), method: :delete, data: { confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-trash' %>
+        </div>
       </div>
     </div>
   <% end %>
