@@ -1,9 +1,15 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_project, only: [:edit, :update, :show, :destroy, :toggle_status]
+  before_action :admin_only, only: [:review, :toggle_status]
+  before_action :set_project, only: [:edit, :update, :show, :destroy, :toggle_status, :project_belongs_to_currents_user]
+  before_action :project_belongs_to_currents_user, only: [:show, :edit, :update]
 
   def index
     @projects = current_user.projects
+  end
+
+  def review
+    @pending_projects = Project.pending
   end
 
   def new
@@ -63,5 +69,19 @@ class ProjectsController < ApplicationController
 
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to projects_url, alert: "Access denied."
+      end
+    end
+
+    def project_belongs_to_currents_user
+      unless current_user.admin?
+        unless current_user.projects.include?(@project)
+          redirect_to projects_url, alert: "Access denied."
+        end
+      end
     end
 end
