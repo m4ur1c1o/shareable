@@ -7,7 +7,15 @@
           <h3><%= link_to project.title, project_show_path(project) %></h3>
           <p><%= project.short_description %></p>
         </div>
-        <%= status_label project.status %>
+
+        <% if current_user.admin? %>
+          <%= link_to toggle_status_project_path(project) do %>
+            <%= status_label project.status %>
+          <% end %>
+        <% else %>
+          <%= status_label project.status %>
+        <% end %>
+
         <div class="pull-right">
           <%= link_to '', edit_project_path(project), class: 'glyphicon glyphicon-pencil' %>
           <%= link_to '', project_path(project), method: :delete, data: { confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-trash' %>

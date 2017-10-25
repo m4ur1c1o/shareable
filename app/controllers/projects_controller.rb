@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
       @project.pending!
     end
 
-    redirect_to projects_url, notice: 'Project status has been updated.'
+    redirect_to review_projects_url, notice: 'Project status has been updated.'
   end
 
   private
