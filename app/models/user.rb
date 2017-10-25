@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
 
+  validates_presence_of :first_name, :last_name, :email, :password
+  validates_uniqueness_of :email
+
   enum role: { company: 0, admin: 1 }
 end

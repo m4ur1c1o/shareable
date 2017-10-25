@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :faq do
     question "MyString"
     answer "MyString"
-    project nil
+    project
   end
 end
